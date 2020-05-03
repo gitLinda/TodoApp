@@ -8,4 +8,8 @@ import {MyObject, Todo} from '../../model/Todo';
 })
 export class AppComponent {
   todoList: Array<Todo> = [];
+
+  updateTodoList(todoList: Array<Todo>): void {
+    this.todoList = todoList;
+  }
 }

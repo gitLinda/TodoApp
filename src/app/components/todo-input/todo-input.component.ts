@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from '../../model/Todo';
 
 @Component({
@@ -6,21 +6,20 @@ import {Todo} from '../../model/Todo';
   templateUrl: './todo-input.component.html',
   styleUrls: ['./todo-input.component.css']
 })
-export class TodoInputComponent implements OnInit {
+export class TodoInputComponent {
 
   constructor() { }
 
   todoName: string;
   todoValue: string;
   @Input() todoList: Array<Todo>;
-
-  ngOnInit(): void {
-  }
+  @Output() updateTodoList: EventEmitter<Array<Todo>> = new EventEmitter<Array<Todo>>();
 
   addTodo() {
     this.todoList.push({name: this.todoName, value: this.todoValue});
     this.todoName = '';
     this.todoValue = '';
+    this.updateTodoList.emit(this.todoList);
   }
 
 }
