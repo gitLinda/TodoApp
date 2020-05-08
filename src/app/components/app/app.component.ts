@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MyObject, Todo} from '../../model/Todo';
+import {Component} from '@angular/core';
+import {Todo} from '../../model/Todo';
 
 @Component({
   selector: 'app-root',
