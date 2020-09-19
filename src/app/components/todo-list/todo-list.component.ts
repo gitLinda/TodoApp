@@ -11,11 +11,10 @@ export class TodoListComponent {
   constructor() { }
 
   @Input() todoList: Array<Todo>;
-  @Output() updateTodoList: EventEmitter<Array<Todo>> = new EventEmitter<Array<Todo>>();
+  @Output() removeTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  deleteTodo(index: number): void {
-    this.todoList.splice(index, 1);
-    this.updateTodoList.emit(this.todoList);
+  deleteTodo(todo: Todo): void {
+    this.removeTodo.emit(todo);
   }
 
 }

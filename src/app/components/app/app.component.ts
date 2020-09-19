@@ -9,7 +9,11 @@ import {Todo} from '../../model/Todo';
 export class AppComponent {
   todoList: Array<Todo> = [];
 
-  updateTodoList(todoList: Array<Todo>): void {
-    this.todoList = todoList;
+  addTodo(todo: Todo): void {
+    this.todoList.push(todo);
+  }
+
+  removeTodo(todo: Todo): void {
+    this.todoList = this.todoList.filter(item => item !== todo);
   }
 }

@@ -12,14 +12,12 @@ export class TodoInputComponent {
 
   todoName: string;
   todoValue: string;
-  @Input() todoList: Array<Todo>;
-  @Output() updateTodoList: EventEmitter<Array<Todo>> = new EventEmitter<Array<Todo>>();
+  @Output() addTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  addTodo() {
-    this.todoList.push({name: this.todoName, value: this.todoValue});
+  capture() {
+    this.addTodo.emit({name: this.todoName, value: this.todoValue});
     this.todoName = '';
     this.todoValue = '';
-    this.updateTodoList.emit(this.todoList);
   }
 
 }
